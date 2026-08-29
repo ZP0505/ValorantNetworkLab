@@ -13,6 +13,11 @@ if errorlevel 1 goto :error
 python -m pip install pyinstaller
 if errorlevel 1 goto :error
 
+echo.
+echo Generating application icon...
+python generate_icon.py
+if errorlevel 1 goto :error
+
 set "UPXDIR="
 
 if exist "%~dp0tools\upx\upx.exe" (
