@@ -22,3 +22,13 @@ class MainWindow(QMainWindow, MainWindowUI, MainWindowLogic):
         self.apply_styles()
         for card in self.region_cards.values():
             self.apply_badge_style(card.badge, '一般')
+
+    def combo_number(self, box):
+        text = box.currentText()
+        digits = ""
+        for ch in text:
+            if ch.isdigit():
+                digits += ch
+            elif digits:
+                break
+        return int(digits) if digits else 0
